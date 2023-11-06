@@ -85,3 +85,35 @@ Only one IP per POP. Every time you wan to scale your application your scale you
 # Amazon Elastic Kubernetes Service (Amazon EKS) 
 
 This is a managed service that you can use to run Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
+
+![Alt text](kubectl.png)
+
+## KUBECTL 
+Is a K8s `CLI` tool that allow you to communicate with the `CONTROLE PLANE`. It's not only use with EKS it's also use with K8s. Then we install `KUBECTL` by using the following steps below or by going to the official documentation Read [this page](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html) for more information about the syntax to use.
+
+* kubectl A command line tool for working with Kubernetes clusters.
+
+1. To install or update kubectl 
+* On macOS
+```
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.28.2/2023-10-17/bin/darwin/amd64/kubectl
+
+```
+* On Window 
+```
+curl.exe -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.28.2/2023-10-17/bin/windows/amd64/kubectl.exe
+
+```
+* Use the following command to verify if everything was install succesfully 
+```
+kubectl version --client
+
+```
+
+
+
+
+EKSCTL is an open source and free tool created by Weaveworks .
+
+eksctl A command line tool for provisioning Kubernetes clusters.It makes the creation, deletion and management of AWS EKS Clusters SUPER EASY! 
+You will need just one command to make your AWS EKS cluster up and running, thanks to AWS CloudFormation laaC service . All you need is to do is to insert some properties (region, number of nodes, the name of your node group) and launch the creation.
