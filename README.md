@@ -51,7 +51,7 @@ He's the one responsible for managing the containers. That's where your containe
 
 * There are somany conatiner runtime out there, Docker is just the most popular one
 
-3. PROXY: It's just the networking component, it function must like a LoadBalancer that takes the trafic and send to different containers 
+3. PROXY: It's just the networking component, it function must like a `LoadBalancer` that takes the trafic and send to different containers 
 
 It is just there to handle all outside communication between the Master and the Worker node.
 
@@ -59,3 +59,29 @@ As user we don't direvtly interact with the worker node but with the control pla
 
 
 
+# POP ARCHITECTURE 
+
+![Alt text](node.png)
+
+
+Kubernetes on it own doesn't interact directly with the containers. Kubernetes takes you conatiners and encapsulate in another object call the POP. Kubernetes then interact with the POP and the pop indirect with the conatainers. 
+
+# POP 
+
+* Pop is just one or more containers group together that share the same IP space. 
+* Pop is the smallest objet you can create in K8s
+* Pop is a k8s object that group containers. There are lot of object out the and POP is one of them 
+* It's recommented to only have one containers application inside the pop(BEST PRACTICE). 
+* Pop is like your `TAGET GROUP`. The `loadbalance` interact directly with the taget group not the ec2 instance. 
+
+
+![Alt text](<POP Architecture.png>)
+
+A NODE can contain somany POP. 
+Only one IP per POP. Every time you wan to scale your application your scale your pop and each POP should only have one application. So your can duplicate your applicaion to somany pop. Depending on the `INSTANCE TYPE OF YOUR APPLICATION. eg t2.micro`
+
+
+
+# Amazon Elastic Kubernetes Service (Amazon EKS) 
+
+This is a managed service that you can use to run Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
