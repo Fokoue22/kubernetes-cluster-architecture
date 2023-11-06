@@ -142,3 +142,13 @@ eksctl version
 https://github.com/eksctl-io/eksctl/releases/download/v0.164.0/eksctl_Windows_amd64.zip
 
 ```
+5. Create your first cluster using the command below 
+* NB. Before launging this command, make sure you are not working as an `ADMINISTRATOR` 
+*  
+```
+eksctl create cluster --name=first-eks --nodes=4 --node-type t3.micro --region us-east-2
+
+```
+![Alt text](image.png)
+
+![Alt text](image-1.png)
