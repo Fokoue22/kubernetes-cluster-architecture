@@ -111,9 +111,34 @@ kubectl version --client
 ```
 
 
+## EKSCTL
 
+* EKSCTL is an open source and free tool created by Weaveworks .
+* eksctl A command line tool for provisioning Kubernetes clusters.It makes the creation, deletion and management of AWS EKS Clusters SUPER EASY! 
+* You will need just one command to make your AWS EKS cluster up and running, thanks to AWS CloudFormation laaC service . All you need is to do is to insert some properties (region, number of nodes, the name of your node group) and launch the creation.
 
-EKSCTL is an open source and free tool created by Weaveworks .
+### `HOW TO INSTALL EKSCTL ON WINDOW`
+1. We first need to install Chocolatey on CLI. Check the official documentation Read [this page](https://docs.chocolatey.org/en-us/choco/setup) for more information
 
-eksctl A command line tool for provisioning Kubernetes clusters.It makes the creation, deletion and management of AWS EKS Clusters SUPER EASY! 
-You will need just one command to make your AWS EKS cluster up and running, thanks to AWS CloudFormation laaC service . All you need is to do is to insert some properties (region, number of nodes, the name of your node group) and launch the creation.
+* NB. Don't forget to run your CLI as `ADMINISTRATOR`
+```
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+
+```
+2. Then we install eksctl using `choco` NB. Don't forget to run your CLI as `ADMINISTRATOR`  
+```
+choco install eksctl -y
+
+```
+3. Test that your installation was succesfull with the following command   
+```
+eksctl version
+
+```
+4. Then you need to download the `zip file` and extract it. 
+* NB. Type this link to you web-browser, it will automatically download the zip file for you. 
+* This link could be copy when `step 2` is done.  
+```
+https://github.com/eksctl-io/eksctl/releases/download/v0.164.0/eksctl_Windows_amd64.zip
+
+```
