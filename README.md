@@ -155,6 +155,8 @@ eksctl create cluster --name=first-eks --nodes=4 --node-type t3.micro --region u
 ![Alt text](image-1.png)
 
 
+
+
 ## PORT MANIFEST FILE 
 
 ![Alt text](manifest-file-setup.png)
@@ -168,3 +170,4 @@ After doing this manifest file we will no longer going to interact with the cont
       * `name` is the name of your container and here is `apache-app`
       * `image` here you reference your image from `dockerHub`. You just need to go to your DockerHub account an copie and existing apache image
       * `ports` then we open containerPort `80` to send and recieve traffic  
+
