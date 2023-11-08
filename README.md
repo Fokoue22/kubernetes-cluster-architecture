@@ -68,10 +68,10 @@ Kubernetes on it own doesn't interact directly with the containers. Kubernetes t
 
 # POP 
 
-* Pop is just one or more containers group together that share the same IP space. 
+* Pop is just one or more containers group together that share the same IP space. i.e If mutiple container are in one pop the will only have one IP address allocated to them
+* It's recommented to only have one containers application inside the pop(`BEST PRACTICE`).
 * Pop is the smallest objet you can create in K8s
 * Pop is a k8s object that group containers. There are lot of object out the and POP is one of them 
-* It's recommented to only have one containers application inside the pop(BEST PRACTICE). 
 * Pop is like your `TAGET GROUP`. The `loadbalance` interact directly with the taget group not the ec2 instance. 
 
 
@@ -125,7 +125,8 @@ kubectl version --client
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
 ```
-2. Then we install eksctl using `choco` NB. Don't forget to run your CLI as `ADMINISTRATOR`  
+2. Then we install eksctl using `choco` 
+* NB. Don't forget to run your CLI as `ADMINISTRATOR`  
 ```
 choco install eksctl -y
 
