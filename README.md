@@ -153,3 +153,18 @@ eksctl create cluster --name=first-eks --nodes=4 --node-type t3.micro --region u
 ![Alt text](image.png)
 
 ![Alt text](image-1.png)
+
+
+## PORT MANIFEST FILE 
+
+![Alt text](manifest-file-setup.png)
+
+After doing this manifest file we will no longer going to interact with the container. This simple mince that we will no longer write the command docker pull to pull the image. Docker run for running the container. All those will know will handle by KUBERNETES. Check the official documentation Read [this page](https://kubernetes.io/docs/concepts/workloads/pods/) for more information
+
+1. The first line which is `apiVersion: v1` So this is just the version of the template and it's something provided by KUBERNETES
+2. On the seconde line we do have `kind: Pod`. Here we are telling KUBERNETES was kind of object to deployed and it's a POP 
+3. Then we want to attache a lable to our POP. We can do this by adding a `tag` to our POP. To do this you go to your `metadata section and create a name`
+4. On the `spec` we have this element call `Containers`. 
+      * `name` is the name of your container and here is `apache-app`
+      * `image` here you reference your image from `dockerHub`. You just need to go to your DockerHub account an copie and existing apache image
+      * `ports` then we open containerPort `80` to send and recieve traffic  
