@@ -171,3 +171,16 @@ After doing this manifest file we will no longer going to interact with the cont
       * `image` here you reference your image from `dockerHub`. You just need to go to your DockerHub account an copie and existing apache image
       * `ports` then we open containerPort `80` to send and recieve traffic  
 
+5. To create a pop we write the command. `NB` Change the nginex-first-pop.yml with the name of your yaml file. 
+```
+kubectl create -f .\nginex-first-pop.yml
+```
+6. This command will let you know if your pop is working. But doesn't give more information about the pop. 
+```
+kubectl get pod
+```
+7. This commanad is very Important. It will give you all the information about the pop 
+
+```
+kubectl describe pod nginex
+```
