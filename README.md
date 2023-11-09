@@ -9,9 +9,9 @@ When you deploy Kubernetes, you get a cluster.
 
 Kubernetes cluster is a group of one or more worker node consists of a set of worker machines, called nodes,that run containerized application.
 
-Worker node(s) host the PODS (containerized app). They are just Server i.e EC2 server 
+`Worker node(s)` host the PODS (containerized app). They are just Server i.e EC2 server 
 
-Control Plane (Master) manages the worker nodes and the pods in the cluster.
+`Control Plane (Master)` manages the worker nodes and the pods in the cluster.
 
 # KUBERNETES ARCHITECTURE  
 
@@ -145,7 +145,6 @@ https://github.com/eksctl-io/eksctl/releases/download/v0.164.0/eksctl_Windows_am
 ```
 5. Create your first cluster using the command below 
 * NB. Before launging this command, make sure you are not working as an `ADMINISTRATOR` 
-*  
 ```
 eksctl create cluster --name=first-eks --nodes=4 --node-type t3.micro --region us-east-2
 
