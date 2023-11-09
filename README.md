@@ -22,7 +22,8 @@ Kubernetes cluster is a group of one or more worker node consists of a set of wo
 This is the brain of kubernetes. He's responsible of sCheduling containers on the worker node. He's the guy that give direction (`ORCHESTRATION`) to each worker node. 
 
 `ON THE MASTER WE HAVE`
-1. API SERVER : It's that component in the control plane that allow or manages the comminication between the worker node and the control plane 
+### 1. API SERVER :  
+  It's that component in the control plane that allow or manages the comminication between the worker node and the control plane 
 
 2. ETCD (DISTRIBUTED STORAGE): As the is a communication between the Master and the Worker node there are some information that are send between them and need to be store. 
 ETCD is just where the contole store all information about the cluster. 
