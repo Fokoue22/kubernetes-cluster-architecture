@@ -138,19 +138,19 @@ kubectl version --client
 choco install eksctl -y
 
 ```
-3. Test that your installation was succesfull with the following command   
+### 3. Test that your installation was succesfull with the following command   
 ```
 eksctl version
 
 ```
-4. Then you need to download the `zip file` and extract it. 
+### 4. Then you need to download the `zip file` and extract it. 
 * NB. Type this link to you web-browser, it will automatically download the zip file for you. 
 * This link could be copy when `step 2` is done.  
 ```
 https://github.com/eksctl-io/eksctl/releases/download/v0.164.0/eksctl_Windows_amd64.zip
 
 ```
-5. Create your first cluster using the command below 
+### 5. Create your first cluster using the command below 
 * NB. Before launging this command, make sure you are not working as an `ADMINISTRATOR` 
 ```
 eksctl create cluster --name=first-eks --nodes=4 --node-type t3.micro --region us-east-2
@@ -169,23 +169,26 @@ eksctl create cluster --name=first-eks --nodes=4 --node-type t3.micro --region u
 
 After doing this manifest file we will no longer going to interact with the container. This simple mince that we will no longer write the command docker pull to pull the image. Docker run for running the container. All those will know will handle by KUBERNETES. Check the official documentation Read [this page](https://kubernetes.io/docs/concepts/workloads/pods/) for more information
 
-1. The first line which is `apiVersion: v1` So this is just the version of the template and it's something provided by KUBERNETES
-2. On the seconde line we do have `kind: Pod`. Here we are telling KUBERNETES was kind of object to deployed and it's a POP 
-3. Then we want to attache a lable to our POP. We can do this by adding a `tag` to our POP. To do this you go to your `metadata section and create a name`
-4. On the `spec` we have this element call `Containers`. 
+### 1. The first line which is `apiVersion: v1` So this is just the version of the template and it's something provided by KUBERNETES
+
+### 2. On the seconde line we do have `kind: Pod`. Here we are telling KUBERNETES was kind of object to deployed and it's a POP 
+
+### 3. Then we want to attache a lable to our POP. We can do this by adding a `tag` to our POP. To do this you go to your `metadata section and create a name`
+
+### 4. On the `spec` we have this element call `Containers`. 
       * `name` is the name of your container and here is `apache-app`
       * `image` here you reference your image from `dockerHub`. You just need to go to your DockerHub account an copie and existing apache image
       * `ports` then we open containerPort `80` to send and recieve traffic  
 
-5. To create a pop we write the command. `NB` Change the nginex-first-pop.yml with the name of your yaml file. 
+### 5. To create a pop we write the command. `NB` Change the nginex-first-pop.yml with the name of your yaml file. 
 ```
 kubectl create -f .\nginex-first-pop.yml
 ```
-6. This command will let you know if your pop is working. But doesn't give more information about the pop. 
+### 6. This command will let you know if your pop is working. But doesn't give more information about the pop. 
 ```
 kubectl get pod
 ```
-7. This commanad is very Important. It will give you all the information about the pop 
+### 7. This commanad is very Important. It will give you all the information about the pop 
 
 ```
 kubectl describe pod nginex
