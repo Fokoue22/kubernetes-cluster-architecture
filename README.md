@@ -171,16 +171,16 @@ After doing this manifest file we will no longer going to interact with the cont
 
 ### 1. The first line which is `apiVersion: v1` So this is just the version of the template and it's something provided by KUBERNETES
 
-### 2. On the seconde line we do have `kind: Pod`. Here we are telling KUBERNETES was kind of object to deployed and it's a POP 
+### 2. On the seconde line we do have `kind: Pod`. Here we are telling KUBERNETES what kind of object to deployed and it's a POP 
 
-### 3. Then we want to attache a lable to our POP. We can do this by adding a `tag` to our POP. To do this you go to your `metadata section and create a name`
+### 3. Then we want to attache a name to our POP. We can do this by adding a `tag` to our POP. To do this you go to your `metadata section and create a name`
 
 ### 4. On the `spec` we have this element call `Containers`. 
-      * `name` is the name of your container and here is `apache-app`
-      * `image` here you reference your image from `dockerHub`. You just need to go to your DockerHub account an copie and existing apache image
-      * `ports` then we open containerPort `80` to send and recieve traffic  
+  * `name` is the name of your container and here is `apache-app`
+  * `image` here you reference your image from `dockerHub`. You just need to go to your DockerHub account an copie and existing apache image
+  * `ports` then we open containerPort `80` to send and recieve traffic  
 
-### 5. To create a pop we write the command. `NB` Change the nginex-first-pop.yml with the name of your yaml file. 
+### 5. To create a pop we write the command. `NB` Change the `nginex-first-pop.yml` with the name of your yaml file. 
 ```
 kubectl create -f .\nginex-first-pop.yml
 ```
