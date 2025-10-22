@@ -36,35 +36,42 @@ He's the one responsible for managing the containers. That's where your containe
 - PROXY: It's just the networking component, it function must like a `LoadBalancer` that takes the trafic and send to different containers. He is just there to handle all outside communication between the Master and the Worker node. As user we don't direvtly interact with the worker node but with the control plane and the controle plane carry that action b default. 
 
 
+### 💻 POP Components
+Kubernetes on it own doesn't interact directly with the containers. Kubernetes takes you conatiners and encapsulate in another object call the POP. Kubernetes then interact with the POP and the pop indirect with the conatainers.
+![Alt text](node.png)
+
+- Pop is just one or more containers group together that share the same IP space. i.e If mutiple container are in one pop the will only have one IP address allocated to them
+- It's recommented to only have one containers application inside the pop(`BEST PRACTICE`).
+- Pop is the smallest objet you can create in K8s
+- Pop is a k8s object that group containers. There are lot of object out the and POP is one of them 
+- Pop is like your `TAGET GROUP`. The `loadbalance` interact directly with the taget group not the ec2 instance. 
 
 
+![Alt text](<POP Architecture.png>)
 
+A NODE can contain somany POP. Only one IP per POP. Every time you wan to scale your application your scale your pop and each POP should only have one application. So your can duplicate your applicaion to somany pop. Depending on the `INSTANCE TYPE OF YOUR APPLICATION. eg t2.micro`
 
+### 💻 Amazon Elastic Kubernetes Service (Amazon EKS) Components
+This is a managed service that you can use to run Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
 
+![Alt text](kubectl.png)
 
+#### KUBECTL 
+Is a K8s `CLI` tool that allow you to communicate with the `CONTROLE PLANE`. It's not only use with EKS it's also use with K8s. Then we install `KUBECTL` by using the following steps below or by going to the official documentation Read [this page](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html) for more information about the syntax to use. kubectl A command line tool for working with Kubernetes clusters.
 
+### 💻 EKSCTL Components
 
-#### 🧩 How It Works
+- EKSCTL is an open source and free tool created by Weaveworks .
+- eksctl A command line tool for provisioning Kubernetes clusters.It makes the creation, deletion and management of AWS EKS Clusters SUPER EASY! 
+- You will need just one command to make your AWS EKS cluster up and running, thanks to AWS CloudFormation laaC service . All you need is to do is to insert some properties (region, number of nodes, the name of your node group) and launch the creation.
+
+### 🧩 How It Works
 - The developer defines the desired application state (Pods, Deployments, Services).
 - The API Server receives and validates the request.
 - Scheduler assigns pods to worker nodes.
 - Kubelet on each node pulls container images and runs them.
 - Kube Proxy enables communication between pods and services.
 - etcd stores and updates all cluster states consistently.
-
-### 🚀 Key Features
-- Automated container deployment and scaling
-- Self-healing through replica controllers
-- Load balancing and service discovery
-- Centralized configuration and state management via etcd
-- Supports rolling updates and rollbacks
-
-### 🛠️ Technologies Used
-- Kubernetes
-- Docker / Containerd
-- etcd
-- Linux (Ubuntu / Amazon Linux)
-- YAML for manifests
 
 ### 🎯 Learning Objectives
 - Understand Kubernetes cluster architecture and its core components
@@ -75,48 +82,8 @@ He's the one responsible for managing the containers. That's where your containe
 
 ![Alt text](<kubernetes architecture.png>)
 
-## Component that made up the Kubernetes
 
-
-
-
-
-
-
-# POP ARCHITECTURE 
-
-![Alt text](node.png)
-
-
-Kubernetes on it own doesn't interact directly with the containers. Kubernetes takes you conatiners and encapsulate in another object call the POP. Kubernetes then interact with the POP and the pop indirect with the conatainers. 
-
-# POP 
-
-* Pop is just one or more containers group together that share the same IP space. i.e If mutiple container are in one pop the will only have one IP address allocated to them
-* It's recommented to only have one containers application inside the pop(`BEST PRACTICE`).
-* Pop is the smallest objet you can create in K8s
-* Pop is a k8s object that group containers. There are lot of object out the and POP is one of them 
-* Pop is like your `TAGET GROUP`. The `loadbalance` interact directly with the taget group not the ec2 instance. 
-
-
-![Alt text](<POP Architecture.png>)
-
-A NODE can contain somany POP. 
-Only one IP per POP. Every time you wan to scale your application your scale your pop and each POP should only have one application. So your can duplicate your applicaion to somany pop. Depending on the `INSTANCE TYPE OF YOUR APPLICATION. eg t2.micro`
-
-
-
-# Amazon Elastic Kubernetes Service (Amazon EKS) 
-
-This is a managed service that you can use to run Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
-
-![Alt text](kubectl.png)
-
-## KUBECTL 
-Is a K8s `CLI` tool that allow you to communicate with the `CONTROLE PLANE`. It's not only use with EKS it's also use with K8s. Then we install `KUBECTL` by using the following steps below or by going to the official documentation Read [this page](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html) for more information about the syntax to use.
-
-* kubectl A command line tool for working with Kubernetes clusters.
-
+## STEPS BY STEPS PROCESS
 ### 1. To install or update kubectl 
 * On macOS
 ```
@@ -134,12 +101,6 @@ kubectl version --client
 
 ```
 
-
-## EKSCTL
-
-* EKSCTL is an open source and free tool created by Weaveworks .
-* eksctl A command line tool for provisioning Kubernetes clusters.It makes the creation, deletion and management of AWS EKS Clusters SUPER EASY! 
-* You will need just one command to make your AWS EKS cluster up and running, thanks to AWS CloudFormation laaC service . All you need is to do is to insert some properties (region, number of nodes, the name of your node group) and launch the creation.
 
 ## `HOW TO INSTALL EKSCTL ON WINDOW`
 ### 1. We first need to install Chocolatey on CLI. Check the official documentation Read [this page](https://docs.chocolatey.org/en-us/choco/setup) for more information
