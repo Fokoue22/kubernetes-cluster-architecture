@@ -14,7 +14,6 @@ This project illustrates the core architecture of a Kubernetes cluster, highligh
 - Kubernetes (K8s) - is an open-source system for automating deployment, scaling and management of containerized applications. (managing containers at scale N)
 - When you deploy Kubernetes, you get a cluster.
 - Kubernetes cluster is a group of one or more worker node consists of a set of worker machines, called nodes,that run containerized application.
-- `Worker node(s)` host the PODS (containerized app). They are just Server i.e EC2 server 
 - Kubelet: Agent that ensures pods are running in the node as instructed by the control plane.
 - Container Runtime (Docker, containerd, etc.): Runs the containers that make up each pod.
 - Kube Proxy: Maintains network rules for pod-to-pod communication and load balancing.
@@ -28,6 +27,13 @@ This is the brain of kubernetes. He's responsible of sCheduling containers on th
 - SCHEDULER: It's just that component that allow the Master to know exactly where to schedule a container. He is responsible of assigning a conatiner to a node. when a worker node died, K8s will create a new one. And that new worker node doesn't conatian any POPs on it. So, the Scheduler will schedule some pops/conatiners to the new worker node. 
 - REPLICATION CONTROLLER: This is the `AUTO-SCALLING FOR KUBERNETS`. The contol plane will know how to duplicate a container by using a repliacation controller. All it does is SCALLING `UP` and `DOWN OF CONATAINERS`
 
+### 💻 WORKER NODE Components
+He's the one responsible for managing the containers. That's where your containers live. - `Worker node(s)` host the PODS (containerized app). They are just Server i.e EC2 server 
+
+#### `ON THE WORKER NODE WE HAVE`
+- KUBELET: Is that engine on the worker node that make sure the containers is working as expected. The master talk to the `kubelet` to know if the worker node is UP or DOWN. The kubelet is just like the service that tell you wether the conatiner is running or not 
+- CONTAINERS RUNTIME: This is just the plateform you are using on your worker node to run your container and we have been using DOCKER. It's simply installing the container DEMON into the node. There are somany conatiner runtime out there, Docker is just the most popular one
+- PROXY: It's just the networking component, it function must like a `LoadBalancer` that takes the trafic and send to different containers. He is just there to handle all outside communication between the Master and the Worker node. As user we don't direvtly interact with the worker node but with the control plane and the controle plane carry that action b default. 
 
 
 
@@ -73,51 +79,7 @@ This is the brain of kubernetes. He's responsible of sCheduling containers on th
 
 
 
-## CONTROL PLANE(MASTER)
-This is the brain of kubernetes. He's responsible of sCheduling containers on the worker node. He's the guy that give direction (`ORCHESTRATION`) to each worker node. 
 
-`ON THE MASTER WE HAVE`
-### 1. API SERVER  
-  It's that component in the control plane that allow or manages the comminication between the worker node and the control plane 
-
-### 2. ETCD (DISTRIBUTED STORAGE) 
-  As the is a communication between the Master and the Worker node there are some information that are send between them and need to be store. 
-  ETCD is just where the contole store all information about the cluster. 
-
-  * This storage is a `key value storage`. It's a Json file. 
-
-### 3. SCHEDULER 
-  It's just that component that allow the Master to know exactly where to schedule a container. He is responsible of assigning a conatiner to a node. 
-
-  * when a worker node died, K8s will create a new one. And that new worker node doesn't conatian any POPs on it. So, the Scheduler will schedule some pops/conatiners to the new worker node. 
-
-### 4. REPLICATION CONTROLLER 
-  This is the `AUTO-SCALLING FOR KUBERNETS`. The contol plane will know how to duplicate a container by using a repliacation controller. 
-
-  * All it does is SCALLING `UP` and `DOWN OF CONATAINERS`
-
-
-## WORKER NODE 
-He's the one responsible for managing the containers. That's where your containers live. 
-
-`ON THE WORKER NODE WE HAVE`
-
-### 1. KUBELET 
-    Is that engibe on the worker node that make sure that the containers is working as expected. 
-
-* The master talk to the `kubelet` to know if the worker node is UP or DOWN. The kubelet is just like the service that tell you wether the conatiner is running or not 
-
-### 2. CONTAINERS RUNTIME 
-    This is just the plateform you are using on your worker node to run your container and we have been using DOCKER. It's simply installing the container DEMON into the node. 
-
-* There are somany conatiner runtime out there, Docker is just the most popular one
-
-### 3. PROXY: 
-    It's just the networking component, it function must like a `LoadBalancer` that takes the trafic and send to different containers 
-
-It is just there to handle all outside communication between the Master and the Worker node.
-
-As user we don't direvtly interact with the worker node but with the control plane and the controle plane carry that action b default. 
 
 
 
