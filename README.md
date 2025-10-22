@@ -1,5 +1,51 @@
 # KUBERNETES-On-AWS
-This is my main kubernetes project repo
+This project illustrates the core architecture of a Kubernetes cluster, highlighting how the control plane and worker nodes interact to manage and orchestrate containerized applications. It demonstrates the flow of communication between key Kubernetes components such as the API Server, Scheduler, etcd, and Kubelet, forming the backbone of modern cloud-native infrastructure.
+
+☸️ Kubernetes Cluster Architecture – Container Orchestration at Scale
+
+⚙️ Architecture Breakdown
+🧠 Control Plane Components
+- API Server: The central management point that exposes the Kubernetes API for cluster communication.
+- Scheduler: Assigns newly created pods to suitable worker nodes based on resource availability and policies.
+- Controller Manager (Replication Controller): Monitors the cluster state and ensures the desired number of pod replicas are running.
+- etcd (Distributed Key-Value Store): Stores cluster configuration and state data in a consistent and distributed manner.
+
+💻 Worker Node Components
+- Each worker node hosts:
+- Kubelet: Agent that ensures pods are running in the node as instructed by the control plane.
+- Container Runtime (Docker, containerd, etc.): Runs the containers that make up each pod.
+- Kube Proxy: Maintains network rules for pod-to-pod communication and load balancing.
+
+🧩 How It Works
+- The developer defines the desired application state (Pods, Deployments, Services).
+- The API Server receives and validates the request.
+- Scheduler assigns pods to worker nodes.
+- Kubelet on each node pulls container images and runs them.
+- Kube Proxy enables communication between pods and services.
+- etcd stores and updates all cluster states consistently.
+
+🚀 Key Features
+- Automated container deployment and scaling
+- Self-healing through replica controllers
+- Load balancing and service discovery
+- Centralized configuration and state management via etcd
+- Supports rolling updates and rollbacks
+
+🛠️ Technologies Used
+- Kubernetes
+- Docker / Containerd
+- etcd
+- Linux (Ubuntu / Amazon Linux)
+- YAML for manifests
+
+🎯 Learning Objectives
+- Understand Kubernetes cluster architecture and its core components
+- Learn how workloads are scheduled, deployed, and monitored
+- Explore communication between the control plane and worker nodes
+
+# 📸 Project Diagram "KUBERNETES ARCHITECTURE" 
+
+![Alt text](<kubernetes architecture.png>)
 
 ## Component that made up the Kubernetes
 Kubernetes (K8s) - is an open-source system for automating deployment, scaling and management of containerized
@@ -13,9 +59,6 @@ Kubernetes cluster is a group of one or more worker node consists of a set of wo
 
 `Control Plane (Master)` manages the worker nodes and the pods in the cluster.
 
-# KUBERNETES ARCHITECTURE  
-
-![Alt text](<kubernetes architecture.png>)
 
 
 ## CONTROL PLANE(MASTER)

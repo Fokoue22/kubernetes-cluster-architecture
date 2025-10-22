@@ -3,8 +3,9 @@ kind: Pod
 metadata:
   name: nginx # This is just like apache that do web server configuration same as apache different company
 spec:
+  replicas: 4
   containers:
   - name: nginx
-    image: nginx:1.14.2
+    image: fokoue/thom_apache_image:v1.0.0
     ports:
     - containerPort: 80
