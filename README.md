@@ -1,22 +1,44 @@
 # KUBERNETES-On-AWS
 This project illustrates the core architecture of a Kubernetes cluster, highlighting how the control plane and worker nodes interact to manage and orchestrate containerized applications. It demonstrates the flow of communication between key Kubernetes components such as the API Server, Scheduler, etcd, and Kubelet, forming the backbone of modern cloud-native infrastructure.
 
-☸️ Kubernetes Cluster Architecture – Container Orchestration at Scale
+## ☸️ Kubernetes Cluster Architecture – Container Orchestration at Scale
 
-⚙️ Architecture Breakdown
-🧠 Control Plane Components
+### ⚙️ Architecture Breakdown
+### 🧠 Control Plane Components
 - API Server: The central management point that exposes the Kubernetes API for cluster communication.
 - Scheduler: Assigns newly created pods to suitable worker nodes based on resource availability and policies.
 - Controller Manager (Replication Controller): Monitors the cluster state and ensures the desired number of pod replicas are running.
 - etcd (Distributed Key-Value Store): Stores cluster configuration and state data in a consistent and distributed manner.
 
-💻 Worker Node Components
-- Each worker node hosts:
+### 💻 Worker Node Components
+- Kubernetes (K8s) - is an open-source system for automating deployment, scaling and management of containerized applications. (managing containers at scale N)
+- When you deploy Kubernetes, you get a cluster.
+- Kubernetes cluster is a group of one or more worker node consists of a set of worker machines, called nodes,that run containerized application.
+- `Worker node(s)` host the PODS (containerized app). They are just Server i.e EC2 server 
 - Kubelet: Agent that ensures pods are running in the node as instructed by the control plane.
 - Container Runtime (Docker, containerd, etc.): Runs the containers that make up each pod.
 - Kube Proxy: Maintains network rules for pod-to-pod communication and load balancing.
 
-🧩 How It Works
+### 💻 CONTROL PLANE(MASTER) Components
+This is the brain of kubernetes. He's responsible of sCheduling containers on the worker node. He's the guy that give direction (`ORCHESTRATION`) to each worker node. So he manages the worker nodes and the pods in the cluster.
+
+#### `ON THE MASTER WE HAVE`
+- API SERVER: It's that component in the control plane that allow or manages the comminication between the worker node and the control plane 
+- ETCD (DISTRIBUTED STORAGE): As the is a communication between the Master and the Worker node there are some information that are send between them and need to be store.ETCD is just where the contole store all information about the cluster. This storage is a `key value storage`. It's a Json file. 
+- SCHEDULER: It's just that component that allow the Master to know exactly where to schedule a container. He is responsible of assigning a conatiner to a node. when a worker node died, K8s will create a new one. And that new worker node doesn't conatian any POPs on it. So, the Scheduler will schedule some pops/conatiners to the new worker node. 
+- REPLICATION CONTROLLER: This is the `AUTO-SCALLING FOR KUBERNETS`. The contol plane will know how to duplicate a container by using a repliacation controller. All it does is SCALLING `UP` and `DOWN OF CONATAINERS`
+
+
+
+
+
+
+
+
+
+
+
+#### 🧩 How It Works
 - The developer defines the desired application state (Pods, Deployments, Services).
 - The API Server receives and validates the request.
 - Scheduler assigns pods to worker nodes.
@@ -24,40 +46,30 @@ This project illustrates the core architecture of a Kubernetes cluster, highligh
 - Kube Proxy enables communication between pods and services.
 - etcd stores and updates all cluster states consistently.
 
-🚀 Key Features
+### 🚀 Key Features
 - Automated container deployment and scaling
 - Self-healing through replica controllers
 - Load balancing and service discovery
 - Centralized configuration and state management via etcd
 - Supports rolling updates and rollbacks
 
-🛠️ Technologies Used
+### 🛠️ Technologies Used
 - Kubernetes
 - Docker / Containerd
 - etcd
 - Linux (Ubuntu / Amazon Linux)
 - YAML for manifests
 
-🎯 Learning Objectives
+### 🎯 Learning Objectives
 - Understand Kubernetes cluster architecture and its core components
 - Learn how workloads are scheduled, deployed, and monitored
 - Explore communication between the control plane and worker nodes
 
-# 📸 Project Diagram "KUBERNETES ARCHITECTURE" 
+### 📸 Project Diagram "KUBERNETES ARCHITECTURE" 
 
 ![Alt text](<kubernetes architecture.png>)
 
 ## Component that made up the Kubernetes
-Kubernetes (K8s) - is an open-source system for automating deployment, scaling and management of containerized
-applications. (managing containers at scale N)
-
-When you deploy Kubernetes, you get a cluster.
-
-Kubernetes cluster is a group of one or more worker node consists of a set of worker machines, called nodes,that run containerized application.
-
-`Worker node(s)` host the PODS (containerized app). They are just Server i.e EC2 server 
-
-`Control Plane (Master)` manages the worker nodes and the pods in the cluster.
 
 
 
@@ -236,3 +248,6 @@ kubectl get pod
 ```
 kubectl describe pod nginex
 ```
+
+## Author
+FOKOUE THOMAS
