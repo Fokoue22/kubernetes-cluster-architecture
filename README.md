@@ -2,6 +2,8 @@
 This project illustrates the core architecture of a Kubernetes cluster, highlighting how the control plane and worker nodes interact to manage and orchestrate containerized applications. It demonstrates the flow of communication between key Kubernetes components such as the API Server, Scheduler, etcd, and Kubelet, forming the backbone of modern cloud-native infrastructure.
 
 ## ☸️ Kubernetes Cluster Architecture – Container Orchestration at Scale
+### 📸 Project Diagram "KUBERNETES ARCHITECTURE" 
+![Alt text](images/kubernetes%20architecture.png)
 
 ### ⚙️ Architecture Breakdown
 ### 🧠 Control Plane Components
@@ -38,7 +40,7 @@ He's the one responsible for managing the containers. That's where your containe
 
 ### 💻 POP Components
 Kubernetes on it own doesn't interact directly with the containers. Kubernetes takes you conatiners and encapsulate in another object call the POP. Kubernetes then interact with the POP and the pop indirect with the conatainers.
-![Alt text](node.png)
+![Alt text](images/node.png)
 
 - Pop is just one or more containers group together that share the same IP space. i.e If mutiple container are in one pop the will only have one IP address allocated to them
 - It's recommented to only have one containers application inside the pop(`BEST PRACTICE`).
@@ -46,15 +48,14 @@ Kubernetes on it own doesn't interact directly with the containers. Kubernetes t
 - Pop is a k8s object that group containers. There are lot of object out the and POP is one of them 
 - Pop is like your `TAGET GROUP`. The `loadbalance` interact directly with the taget group not the ec2 instance. 
 
-
-![Alt text](<POP Architecture.png>)
+![Alt text](images/POP%20Architecture.png)
 
 A NODE can contain somany POP. Only one IP per POP. Every time you wan to scale your application your scale your pop and each POP should only have one application. So your can duplicate your applicaion to somany pop. Depending on the `INSTANCE TYPE OF YOUR APPLICATION. eg t2.micro`
 
 ### 💻 Amazon Elastic Kubernetes Service (Amazon EKS) Components
 This is a managed service that you can use to run Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
 
-![Alt text](kubectl.png)
+![Alt text](images/kubectl.png)
 
 #### KUBECTL 
 Is a K8s `CLI` tool that allow you to communicate with the `CONTROLE PLANE`. It's not only use with EKS it's also use with K8s. Then we install `KUBECTL` by using the following steps below or by going to the official documentation Read [this page](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html) for more information about the syntax to use. kubectl A command line tool for working with Kubernetes clusters.
@@ -77,10 +78,6 @@ Is a K8s `CLI` tool that allow you to communicate with the `CONTROLE PLANE`. It'
 - Understand Kubernetes cluster architecture and its core components
 - Learn how workloads are scheduled, deployed, and monitored
 - Explore communication between the control plane and worker nodes
-
-### 📸 Project Diagram "KUBERNETES ARCHITECTURE" 
-
-![Alt text](<kubernetes architecture.png>)
 
 
 ## STEPS BY STEPS PROCESS
@@ -134,16 +131,16 @@ https://github.com/eksctl-io/eksctl/releases/download/v0.164.0/eksctl_Windows_am
 eksctl create cluster --name=first-eks --nodes=4 --node-type t3.micro --region us-east-2
 
 ```
-![Alt text](image.png)
+![Alt text](images/image.png)
 
-![Alt text](image-1.png)
+![Alt text](images/image-1.png)
 
 
 
 
 ## PORT MANIFEST FILE 
 
-![Alt text](manifest-file-setup.png)
+![Alt text](images/manifest-file-setup.png)
 
 After doing this manifest file we will no longer going to interact with the container. This simple mince that we will no longer write the command docker pull to pull the image. Docker run for running the container. All those will know will handle by KUBERNETES. Check the official documentation Read [this page](https://kubernetes.io/docs/concepts/workloads/pods/) for more information
 
