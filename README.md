@@ -124,9 +124,8 @@ eksctl version
 ```
 ![Alt text](images/install-eksctl-with-choco.png)
 
-### 4. Then you need to download the `zip file` and extract it. 
-* NB. Type this link to you web-browser, it will automatically download the zip file for you. 
-* This link could be copy when `step 2` is done.  
+### 4. Your can as well install eksctl with the `zip file` and extract it.
+* NB. Type this link to you web-browser, it will automatically download the zip file for you.   
 ```
 https://github.com/eksctl-io/eksctl/releases/download/v0.164.0/eksctl_Windows_amd64.zip
 
