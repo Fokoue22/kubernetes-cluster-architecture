@@ -149,7 +149,11 @@ eksctl create cluster --name=first-eks --nodes=4 --node-type t3.micro --region u
 ![Alt text](images/ekscluster-aws.png)
 ![Alt text](images/ekscluster-cloudformation.png)
 
+* Now let delete our cluster
+```
+eksctl delete cluster --name=first-eks --region us-east-2
 
+```
 
 
 ## PORT MANIFEST FILE 
