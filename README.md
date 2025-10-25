@@ -147,7 +147,7 @@ eksctl create cluster --name=first-eks --nodes=4 --node-type t3.micro --region u
 ![Alt text](images/ekscluster-deployed1.png)
 
 ![Alt text](images/ekscluster-aws.png)
-
+![Alt text](images/ekscluster-cloudformation.png)
 
 
 
