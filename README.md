@@ -154,7 +154,7 @@ eksctl create cluster --name=first-eks --nodes=4 --node-type t3.micro --region u
 eksctl delete cluster --name=first-eks --region us-east-2
 
 ```
-
+![Alt text](images/delete-cluster.png)
 
 ## PORT MANIFEST FILE 
 
