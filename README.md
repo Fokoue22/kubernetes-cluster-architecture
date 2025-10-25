@@ -131,7 +131,15 @@ https://github.com/eksctl-io/eksctl/releases/download/v0.164.0/eksctl_Windows_am
 
 ```
 ### 5. Create your first cluster using the command below 
-* NB. Before launging this command, make sure you are not working as an `ADMINISTRATOR` 
+* NB. Before launging this command, make sure you are not working as an `ADMINISTRATOR`
+* The first thing is to login to your AWS account through cli with your `Access Keys` 
+```
+aws configure
+
+```
+![Alt text](images/aws-cli-login.png)
+
+* Run your first eks cluster
 ```
 eksctl create cluster --name=first-eks --nodes=4 --node-type t3.micro --region us-east-2
 
