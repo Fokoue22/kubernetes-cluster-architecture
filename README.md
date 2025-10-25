@@ -80,7 +80,9 @@ Is a K8s `CLI` tool that allow you to communicate with the `CONTROLE PLANE`. It'
 - Explore communication between the control plane and worker nodes
 
 
-## STEPS BY STEPS PROCESS
+## 🪜 Implementation Steps Summary
+### 1. Launch EC2 Instance on AWS The EC2 instance must be launche in a `PUBLIC subnet` and should be attache to a SG with inbound role `TCP on port 8080 to your IP address` and `SSH on port 22 to 0.0.0.0/0`. Then we install jenkins by using the following steps below or by going to the official documentation Read [this page](https://www.jenkins.io/doc/book/installing/linux/#debianubuntu) for more information about the syntax to use.
+![Alt text](images/ubuntu-ec2.png)
 ### 1. To install or update kubectl 
 * On macOS
 ```
