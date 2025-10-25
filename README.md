@@ -58,7 +58,7 @@ This is a managed service that you can use to run Kubernetes on AWS without need
 ![Alt text](images/kubectl.png)
 
 #### KUBECTL 
-Is a K8s `CLI` tool that allow you to communicate with the `CONTROLE PLANE`. It's not only use with EKS it's also use with K8s. Then we install `KUBECTL` by using the following steps below or by going to the official documentation Read [this page](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html) for more information about the syntax to use. kubectl A command line tool for working with Kubernetes clusters.
+Is a K8s `CLI` tool that allow you to communicate with the `CONTROLE PLANE`. It's also a command line tool for provisioning Kubernetes clusters. He's not only use with EKS it's also use with K8s. Then we install `KUBECTL` by using the following steps below or by going to the official documentation Read [this page](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html) for more information about the syntax to use. kubectl A command line tool for working with Kubernetes clusters.
 
 ### 💻 EKSCTL Components
 
@@ -81,7 +81,7 @@ Is a K8s `CLI` tool that allow you to communicate with the `CONTROLE PLANE`. It'
 
 
 ## 🪜 Implementation Steps Summary
-### 1. Install or update kubectl. To install kubectl let use the following steps below or by going to the official documentation Read [this page](https://www.jenkins.io/doc/book/installing/linux/#debianubuntu) for more information about the syntax to use.
+### 1. Install or update kubectl. To install `KUBECTL` by using the following steps below or by going to the official documentation Read [this page](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html) for more information about the syntax to use.
 
 * On macOS
 ```
