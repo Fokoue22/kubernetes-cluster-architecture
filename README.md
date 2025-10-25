@@ -81,9 +81,8 @@ Is a K8s `CLI` tool that allow you to communicate with the `CONTROLE PLANE`. It'
 
 
 ## 🪜 Implementation Steps Summary
-### 1. Launch EC2 Instance on AWS The EC2 instance must be launche in a `PUBLIC subnet` and should be attache to a SG with inbound role `TCP on port 8080 to your IP address` and `SSH on port 22 to 0.0.0.0/0`. Then we install jenkins by using the following steps below or by going to the official documentation Read [this page](https://www.jenkins.io/doc/book/installing/linux/#debianubuntu) for more information about the syntax to use.
-![Alt text](images/ubuntu-ec2.png)
-### 1. To install or update kubectl 
+### 1. Install or update kubectl. To install kubectl let use the following steps below or by going to the official documentation Read [this page](https://www.jenkins.io/doc/book/installing/linux/#debianubuntu) for more information about the syntax to use.
+
 * On macOS
 ```
 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.28.2/2023-10-17/bin/darwin/amd64/kubectl
@@ -91,7 +90,7 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.28.2/2023-10-17/bin/darw
 ```
 * On Window 
 ```
-curl.exe -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.28.2/2023-10-17/bin/windows/amd64/kubectl.exe
+curl.exe -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.34.1/2025-09-19/bin/windows/amd64/kubectl.exe
 
 ```
 * Use the following command to verify if everything was install succesfully 
@@ -99,7 +98,7 @@ curl.exe -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.28.2/2023-10-17/bin/
 kubectl version --client
 
 ```
-
+![Alt text](images/install-kubectl.png)
 
 ## `HOW TO INSTALL EKSCTL ON WINDOW`
 ### 1. We first need to install Chocolatey on CLI. Check the official documentation Read [this page](https://docs.chocolatey.org/en-us/choco/setup) for more information
