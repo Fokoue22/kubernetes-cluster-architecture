@@ -144,9 +144,10 @@ aws configure
 eksctl create cluster --name=first-eks --nodes=4 --node-type t3.micro --region us-east-2
 
 ```
-![Alt text](images/image.png)
+![Alt text](images/ekscluster-deployed1.png)
 
-![Alt text](images/image-1.png)
+![Alt text](images/ekscluster-aws.png)
+
 
 
 
